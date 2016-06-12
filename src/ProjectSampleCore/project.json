@@ -38,7 +38,8 @@
       "version": "1.0.0-preview1-final",
       "type": "build"
     },
-    "AutoMapper": "4.2.1"
+    "AutoMapper": "4.2.1",
+    "Microsoft.AspNetCore.Session": "1.0.0-rc2-final"
   },
 
   "tools": {

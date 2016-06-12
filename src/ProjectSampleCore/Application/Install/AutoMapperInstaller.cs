@@ -25,6 +25,7 @@ namespace ProjectSampleCore.Application.Install
 
                 foreach (var otherType in otherTypes)
                     services.AddScoped(otherType);
+                services.AddSingleton(Mapper.Engine.ConfigurationProvider);
                 services.AddSingleton(Mapper.Instance);
                 services.AddSingleton(Mapper.Engine);
             });
