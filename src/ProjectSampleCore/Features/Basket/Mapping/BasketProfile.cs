@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using ProjectSampleCore.Areas.Basket.Models;
 using ProjectSampleCore.Core.Domain;
-using ProjectSampleCore.Infrastructure.AutoMapper;
+using ProjectSampleCore.Features.Basket.Models;
 
-namespace ProjectSampleCore.Areas.Basket.Mapping
+namespace ProjectSampleCore.Features.Basket.Mapping
 {
     public class BasketProfile : Profile
     {

@@ -1,0 +1,11 @@
+﻿@model ProjectSampleCore.Features.Admin.Models.Products.ProductFields
+
+<div class="form-group">
+    <label asp-for="Name" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <div class="col-md-10 col-md-offset-2">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+</div>

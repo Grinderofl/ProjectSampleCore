@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ProjectSampleCore.Core.Domain;
+﻿using System.Collections.Generic;
 
-namespace ProjectSampleCore.Areas.Basket.Models
+namespace ProjectSampleCore.Features.Basket.Models
 {
     public class WidgetModel
     {

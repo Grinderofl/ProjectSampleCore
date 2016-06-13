@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProjectSampleCore.Data;
 using ProjectSampleCore.Infrastructure.DependencyInjection.ServiceInstaller.Extensions;
+using ProjectSampleCore.Infrastructure.Razor.ViewEngine;
 using ProjectSampleCore.Models;
 using ProjectSampleCore.Services;
 
@@ -54,6 +56,10 @@ namespace ProjectSampleCore
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
+            services.Configure<RazorViewEngineOptions>(r =>
+            {
+                r.ViewLocationExpanders.Add(new AreasToFeaturesViewLocationExpander());
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();

@@ -1,4 +1,4 @@
-﻿namespace ProjectSampleCore.Areas.Admin.Models.Products
+﻿namespace ProjectSampleCore.Features.Admin.Models.Products
 {
     public class ProductListItemModel
     {

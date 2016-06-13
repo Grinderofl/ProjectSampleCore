@@ -1,0 +1,15 @@
+﻿@model ProjectSampleCore.Features.Admin.Models.Products.ProductListItemModel
+
+<tr>
+    <td>@Model.Id</td>
+    <td><a asp-controller="Products" asp-action="Details">@Model.Name</a></td>
+    <td>
+        <form asp-controller="Products" asp-action="create">
+            <a asp-controller="Products" asp-action="Edit" asp-id="@Model.Id">Edit</a>
+            @{
+                var confirmMessage = $"Are you sure you wish to delete {Model.Name}";
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('@confirmMessage');"><span class="glyphicon glyphicon-trash"></span></button>
+            }
+        </form>
+    </td>
+</tr>

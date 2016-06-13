@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectSampleCore.Application.Common.Factories;
-using ProjectSampleCore.Areas.Basket.Models;
-using ProjectSampleCore.Core.Domain;
 using ProjectSampleCore.Core.Domain.Queries;
+using ProjectSampleCore.Features.Basket.Models;
 
-namespace ProjectSampleCore.Areas.Basket.Components
+namespace ProjectSampleCore.Features.Basket.Components
 {
     public class BasketWidget : ViewComponent
     {

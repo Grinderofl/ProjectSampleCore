@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProjectSampleCore.Application.Common.Filters;
 using ProjectSampleCore.Infrastructure.CommandBus;
 using ProjectSampleCore.Infrastructure.Domain.Base;
 using ProjectSampleCore.Infrastructure.Domain.Queries;
@@ -14,6 +15,7 @@ namespace ProjectSampleCore.Infrastructure.Mvc.Controllers
 {
     namespace ProjectSample.Infrastructure.Mvc.Controllers
     {
+        [ServiceFilter(typeof(EntityFilter))]
         public abstract class EntityController<TEntity, TViewModel, TFieldModel, TIndexListItemModel, TKey> : Controller
             where TEntity : Entity<TKey>
             where TFieldModel : new()

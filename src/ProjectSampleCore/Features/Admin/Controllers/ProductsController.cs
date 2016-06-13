@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProjectSampleCore.Areas.Admin.Models.Products;
 using ProjectSampleCore.Core.Domain;
+using ProjectSampleCore.Features.Admin.Models.Products;
 using ProjectSampleCore.Infrastructure.CommandBus;
 using ProjectSampleCore.Infrastructure.Mvc.Controllers.ProjectSample.Infrastructure.Mvc.Controllers;
 
-namespace ProjectSampleCore.Areas.Admin.Controllers
+namespace ProjectSampleCore.Features.Admin.Controllers
 {
     [Area("Admin")]
     public class ProductsController : EntityController<Product, ProductViewModel, ProductFields, ProductListItemModel, long>
