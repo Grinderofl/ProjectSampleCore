@@ -10,7 +10,7 @@ using ProjectSampleCore.Infrastructure.Mvc.Controllers.ProjectSample.Infrastruct
 namespace ProjectSampleCore.Features.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductsController : EntityController<Product, ProductViewModel, ProductFields, ProductListItemModel, long>
+    public class ProductsController : EntityController<Product, ProductViewModel, ProductFields, ProductLineModel, long>
     {
         public ProductsController(IMapper mapper, DbContext context, ICommandBus commandBus) : base(mapper, context, commandBus)
         {

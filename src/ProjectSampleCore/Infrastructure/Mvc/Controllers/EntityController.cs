@@ -79,10 +79,10 @@ namespace ProjectSampleCore.Infrastructure.Mvc.Controllers
                 => Mapper.Map<IEnumerable<TEntity>, IEnumerable<TIndexListItemModel>>(entities);
 
             protected virtual EntityIndexModel CreateIndexModel(IEnumerable<TIndexListItemModel> items)
-                => new EntityIndexModel
+                => new EntityIndexModel<TIndexListItemModel>
                 {
                     Headers = GetHeaders(),
-                    Items = items
+                    LineItems = items.ToArray()
                 };
 
             protected virtual QueryObject<IEnumerable<TEntity>> CreateQuery(int page)
@@ -144,17 +144,17 @@ namespace ProjectSampleCore.Infrastructure.Mvc.Controllers
             protected virtual Result<TEntity, TFieldModel> CreateCore(TFieldModel fields)
             {
                 var entity = MapFromFields(fields);
-                SaveEntity(entity);
+                AddEntity(entity);
                 return Result.Valid(entity, fields, $"{typeof(TEntity).Name} created");
             }
 
-            protected virtual TEntity MapFromFields(TFieldModel fields) => Mapper.Map<TEntity>(fields);
-
-            protected virtual void SaveEntity(TEntity entity)
+            protected virtual void AddEntity(TEntity entity)
             {
                 Context.Add(entity);
                 Context.SaveChanges();
             }
+
+            protected virtual TEntity MapFromFields(TFieldModel fields) => Mapper.Map<TEntity>(fields);
 
             #endregion
 
@@ -185,6 +185,8 @@ namespace ProjectSampleCore.Infrastructure.Mvc.Controllers
             public virtual IActionResult Edit(TKey id)
             {
                 var entity = FindEntity(id);
+                if(entity == null)
+                    return RedirectToAction("Index");
                 var model = MapToFieldModel(entity);
 
                 return CreateEditResult(model);
@@ -221,8 +223,14 @@ namespace ProjectSampleCore.Infrastructure.Mvc.Controllers
             protected virtual Result EditCore(TFieldModel fields, TEntity entity)
             {
                 MapFromFields(fields, entity);
-                SaveEntity(entity);
+                DeleteEntity(entity);
                 return Result.Valid(entity, fields, $"{typeof(TEntity).Name} saved");
+            }
+
+            protected virtual void DeleteEntity(TEntity entity)
+            {
+                Context.Update(entity);
+                Context.SaveChanges();
             }
 
             protected virtual void MapFromFields(TFieldModel fields, TEntity entity)

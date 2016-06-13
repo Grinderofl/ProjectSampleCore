@@ -1,0 +1,19 @@
+﻿<h3>Edit @ViewBag.EntityType</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" asp-controller="@ViewBag.EntityType" method="post" class="form-horizontal">
+            @Html.EditorForModel()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-large btn-primary">Save</button>
+                    <a class="btn btn-large btn-default" asp-action="Index" asp-controller="@ViewBag.EntityType">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>                                                                           
+
+@section scripts {
+    @await Html.PartialAsync("EditScripts")
+}

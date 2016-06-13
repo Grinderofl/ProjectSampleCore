@@ -8,7 +8,7 @@ using ProjectSampleCore.Infrastructure.AutoMapper;
 
 namespace ProjectSampleCore.Features.Admin.Mapping
 {
-    public class ProductsAdminProfile : EntityProfile<Product, ProductViewModel, ProductFields, ProductListItemModel>
+    public class ProductsAdminProfile : EntityProfile<Product, ProductViewModel, ProductFields, ProductLineModel>
     {
     }
 }
