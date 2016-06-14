@@ -7,13 +7,18 @@ using ProjectSampleCore.Infrastructure.Domain.Queries;
 
 namespace ProjectSampleCore.Core.Domain.Queries
 {
-    public class FindNumberOfItemsInBasketForCustomerIdentifierQuery : QueryObject<IQueryable<BasketItem>>
+    public class FindBasketItemsForCustomerQuery : QueryObject<IQueryable<BasketItem>>
     {
         private readonly string _identifier;
 
-        public FindNumberOfItemsInBasketForCustomerIdentifierQuery(string identifier)
+        public FindBasketItemsForCustomerQuery(string identifier)
         {
             _identifier = identifier;
+        }
+
+        public FindBasketItemsForCustomerQuery(Customer customer)
+        {
+            _identifier = customer.Identifier;
         }
 
         public override IQueryable<BasketItem> Execute(DbContext context)

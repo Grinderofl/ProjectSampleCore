@@ -27,7 +27,7 @@ namespace ProjectSampleCore.Features.Basket.Components
             var currentCustomer = _customerIdentityFactory.Identifier();
             var items =
                 await
-                    new FindNumberOfItemsInBasketForCustomerIdentifierQuery(currentCustomer).Execute(_dbContext)
+                    new FindBasketItemsForCustomerQuery(currentCustomer).Execute(_dbContext)
                         .ProjectTo<BasketListItem>(_configurationProvider)
                         .ToListAsync();
             var model = new WidgetModel()

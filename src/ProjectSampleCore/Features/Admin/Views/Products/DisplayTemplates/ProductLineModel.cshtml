@@ -4,10 +4,10 @@
 
 <tr>
     <td>@Model.Id</td>
-    <td><a asp-controller="Products" asp-action="Details">@Model.Name</a></td>
+    <td><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a></td>
     <td>
         <form asp-controller="Products" asp-action="create">
-            <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-edit"></span></a>
             @{
                 var confirmMessage = $"Are you sure you wish to delete {Model.Name}";
                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('@confirmMessage');"><span class="glyphicon glyphicon-trash"></span></button>
