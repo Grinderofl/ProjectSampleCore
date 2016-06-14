@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProjectSampleCore.Data;
 using ProjectSampleCore.Infrastructure.DependencyInjection.ServiceInstaller.Extensions;
+using ProjectSampleCore.Infrastructure.Razor.Extensions;
 using ProjectSampleCore.Infrastructure.Razor.ViewEngine;
 using ProjectSampleCore.Models;
 using ProjectSampleCore.Services;
@@ -56,10 +57,7 @@ namespace ProjectSampleCore
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
-            services.Configure<RazorViewEngineOptions>(r =>
-            {
-                r.ViewLocationExpanders.Add(new AreasToFeaturesViewLocationExpander());
-            });
+            services.ConfigureViewEngineToLookUnderFeatures();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
