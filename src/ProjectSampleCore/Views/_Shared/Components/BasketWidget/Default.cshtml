@@ -1,5 +1,5 @@
 ﻿@model ProjectSampleCore.Features.Basket.Models.WidgetModel
 
 <ul class="nav navbar-right navbar-nav">
-    <li><a class="btn"><span class="glyphicon glyphicon-shopping-cart"></span> @Model.Items.Count()</a></li>
+    <li><a class="btn" asp-controller="Home" asp-action="Index" asp-area="Basket"><span class="glyphicon glyphicon-shopping-cart" ></span> @Model.Items.Count()</a></li>
 </ul>

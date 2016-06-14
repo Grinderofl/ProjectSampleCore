@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ProjectSampleCore.Features.Basket.Models.BasketListItem>
+
+@if (!Model.Any())
+{
+    <h2>No items in basket</h2>
+}
+else
+{
+    <h2>Items in basket</h2>
+}
+
+<table class="table table-bordered table-striped">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Quantity</td>
+        </tr>
+    }
+</table>
