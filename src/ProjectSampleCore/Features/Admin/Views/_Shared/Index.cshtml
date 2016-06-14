@@ -1,5 +1,7 @@
 ﻿@using System.Collections
 @using System.Linq
+@using ProjectSampleCore.Infrastructure.Mvc.Extensions
+@model ProjectSampleCore.Infrastructure.Mvc.Models.EntityIndexModel
 
 <h2>Index - @ViewBag.EntityType</h2>
 
@@ -26,7 +28,10 @@
                 <th>Actions</th>
             </tr>
             <tbody>
-                @Html.DisplayForModel()
+                @foreach (var item in Model.Items)
+                {
+                    @await Html.DisplayTemplateFor(item)
+                }
             </tbody>
         </table>
     </div>

@@ -1,8 +1,0 @@
-﻿@model ProjectSampleCore.Infrastructure.Mvc.Models.EntityIndexModel
-
-@foreach (var item in Model.Items)
-{
-    @await Html.PartialAsync($"DisplayTemplates/{item.GetType().Name}", item)
-    @Html.Display(item.GetType().Name, item)
-}
-
